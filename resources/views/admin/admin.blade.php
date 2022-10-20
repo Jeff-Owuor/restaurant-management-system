@@ -8,7 +8,9 @@
   </head>
   <body>
      <!-- main-panel ends -->
+     <div class="container-scroller">
       @include("admin.navbar");
+</div>
     <!-- plugins:js -->
     @include("admin.adminscript");
     <!-- End custom js for this page -->
