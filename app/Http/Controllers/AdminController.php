@@ -32,5 +32,7 @@ class AdminController extends Controller
         $data->title = $request->title;
         $data->price = $request->price;
         $data->description = $request->description; 
+        $data->save();
+        return redirect()->back();
     }
 }
