@@ -11,24 +11,24 @@
      <!-- main-panel ends -->
       @include("admin.navbar")
       
-     <div style="position:relative;top:44px;right:-120px">
+     <div style="position:relative;top:44px;right:-120px;">
         <form action="{{url('/uploadfood')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="">Title</label>
-                <input type="text" name="title" placeholder="Enter a title" required>
+                <input type="text" name="title" placeholder="Enter a title" required style="color:black;">
             </div>
             <div>
                 <label for="">Price</label>
-                <input type="text" name="price" placeholder="Enter the price" required>
+                <input type="text" name="price" placeholder="Enter the price" required style="color:black;">
             </div>
             <div>
                 <label for="">Image</label>
-                <input type="file" name="image" required>
+                <input type="file" name="image" required style="color:black;">
             </div>
             <div>
                 <label for="">Description</label>
-                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                <textarea name="description" id="" cols="30" rows="10" style="color:black;"></textarea>
             </div>
             <div>
          <input type="submit" value="Save">
