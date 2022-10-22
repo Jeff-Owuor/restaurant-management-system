@@ -27,6 +27,10 @@ class AdminController extends Controller
         $data = food::all();
         return view('admin.foodmenu',compact("data"));
     }
+    public function updateview($id){
+        $data = food::find($id);
+        return view("admin.updateview",compact("data"));
+    }
     public function upload(Request $request){
         $data = new Food;
         $image = $request->image;
