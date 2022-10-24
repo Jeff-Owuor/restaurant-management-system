@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Chefs;
 use App\Models\Reservation;
 
 class AdminController extends Controller
@@ -72,7 +73,8 @@ class AdminController extends Controller
        return view('admin.adminreservation',compact('data'));
     }
     public function viewchef(){
-        return view('admin.adminchef');
+        $data = chefs::all();
+        return view('admin.adminchef',compact("data"));
      }
 
     public function upload(Request $request){
@@ -86,6 +88,20 @@ class AdminController extends Controller
         $data->title = $request->title;
         $data->price = $request->price;
         $data->description = $request->description; 
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function uploadchef(Request $request){
+        $data = new Chefs;
+        $image = $request->image;
+        // gives the image a unique name
+        $imageName =  time().'.'.$image->getClientOriginalExtension(); 
+        $image->move('chefimage',$imageName);
+
+        $data->image= $imageName;
+        $data->name = $request->name;
+        $data->speciality = $request->speciality;
         $data->save();
         return redirect()->back();
     }
