@@ -106,4 +106,32 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function updatechef($id){
+        $data = chefs::find($id);
+        
+        return view("admin.updatechef",compact("data"));
+    }
+
+
+   public function updatefoodchef(Request $request,$id){
+    $data = chefs::find($id);
+    $image = $request->image;
+
+    if($image){
+        $imageName =  time().'.'.$image->getClientOriginalExtension(); 
+        $image->move('chefimage',$imageName);
+        $data->image= $imageName;
+    }
+    
+    $data->name = $request->name;
+    $data->speciality = $request->speciality;
+    $data->save();
+    return redirect()->back();
+   }
+
+   public function deletechef($id){
+       $data = chefs::find($id);
+       $data->delete();
+       return redirect()->back();
+   }
 }
