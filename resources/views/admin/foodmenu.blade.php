@@ -28,7 +28,7 @@
             </div>
             <div>
                 <label for="">Description</label>
-                <textarea name="description" id="" cols="30" rows="10" style="color:black;"></textarea>
+                <input type="text" name="description" placeholder="Enter a brief description" style="color:black;">
             </div>
             <div>
          <input type="submit" value="Save">

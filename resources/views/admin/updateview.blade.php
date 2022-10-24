@@ -13,7 +13,7 @@
       @include("admin.navbar");
 
       <div style="position:relative;top:44px;right:-120px;">
-        <form action="{{url('/update')}}" method="post" enctype="multipart/form-data">
+        <form action="{{url('/update',$data->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="">Title</label>
@@ -26,7 +26,7 @@
             
             <div>
                 <label for="">Description</label>
-                <textarea name="description" value="{{$data->description}}" id="" cols="30" rows="10" style="color:black;"></textarea>
+                <input name="description" value="{{$data->description}}" id="" cols="30" rows="10" style="color:black;">
             </div>
             <div>
                 <label for="">Former Image</label>
