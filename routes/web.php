@@ -26,6 +26,8 @@ Route::post('/update/{id}',[AdminController::class,'update']);
 Route::post('/reservation',[AdminController::class,'reservation']);
 Route::get('/redirects',[HomeController::class,'redirects']);
 Route::get('/viewreservation',[AdminController::class,'viewreservation']);
+Route::get('/viewchef',[AdminController::class,'viewchef']);
+
 
 
 Route::middleware([
