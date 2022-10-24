@@ -39,16 +39,20 @@
             <div class="col-md-7">
             <table bgcolor="black" style="margin-top:5px;">
                 <tr>
-                    <th style="padding:30px">Name</th>
-                    <th style="padding:30px">Speciality</th>
-                    <th style="padding:30px">Image</th>
+                    <th style="padding:20px">Chef Name</th>
+                    <th style="padding:20px">Speciality</th>
+                    <th style="padding:20px">Image</th>
+                    <th style="padding:20px">Action</th>
+                    <th style="padding:20px">Action2</th>
                 </tr>
                 @foreach($data as $data)
                 <tr align="center">
                     <td>{{$data->name}}</td>
                     <td>{{$data->speciality}}</td>
                     <td>{{$data->description}}</td>
-                    <td><img src="/chefimage/{{$data->image}}" alt="" srcset="" width="50px"></td>
+                    <td><img src="/chefimage/{{$data->image}}" alt="" srcset="" width="100px"></td>
+                    <td><a href="{{url ('/deletechef',$data->id)}}" class="btn btn-danger">Delete</a></td>
+                    <td><a href="{{url ('/updatechef',$data->id)}}" class="btn btn-info">Update</a></td>
                 </tr>
                 @endforeach
             </table>
