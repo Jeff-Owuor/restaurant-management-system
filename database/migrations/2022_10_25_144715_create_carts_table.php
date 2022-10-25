@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('food_id')->nullable();
-            $table->string('quanitity_id')->nullable();
+            $table->string('quanitity')->nullable();
             $table->timestamps();
         });
     }
