@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Food;
 use App\Models\Chefs;
+use App\Models\Cart;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,8 @@ class HomeController extends Controller
         $chefsdata = chefs::all();
         return view('home',compact("data","chefsdata"));
     }
-    public function redirects(){
+    public function redirects()
+    {
         $data = food::all();
         $chefsdata = chefs::all();
         $usertype = Auth::user()->usertype;
@@ -24,5 +26,29 @@ class HomeController extends Controller
         }else{
             return view('home',compact("data","chefsdata"));
         }
+    }
+    public function addcart(Request $request,$id)
+    {
+       if(Auth::id())
+       {
+        $user_id = Auth::id();
+
+        $foodid = $id;
+
+        $quantity = $request->quantity;
+
+        $cart = new Cart;
+        $cart->user_id = $user_id;
+        $cart->food_id = $foodid;
+        $cart->quanitity= $quantity;
+
+        $cart->save();
+
+        return redirect()->back();
+       }
+       else
+       {
+        return redirect('/login');
+       }
     }
 }
