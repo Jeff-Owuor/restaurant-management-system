@@ -24,7 +24,11 @@ class HomeController extends Controller
         if($usertype == '1'){
             return view('admin/admin');
         }else{
-            return view('home',compact("data","chefsdata"));
+
+            $user_id = Auth::id();
+            $count = cart::where('user_id',$user_id)->count();
+
+            return view('home',compact("data","chefsdata","count"));
         }
     }
     public function addcart(Request $request,$id)
