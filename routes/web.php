@@ -31,6 +31,8 @@ Route::post('/uploadchef',[AdminController::class,'uploadchef']);
 
 Route::post('/addcart/{id}',[HomeController::class,'addcart']);
 
+Route::get('/showcart/{id}',[HomeController::class,'showcart']);
+
 Route::get('/deleteusers/{id}',[AdminController::class,'deleteuser']);
 
 Route::get('/updateview/{id}',[AdminController::class,'updateview']);
