@@ -131,11 +131,24 @@ https://templatemo.com/tm-558-klassy-cafe
             <th style="padding:30px">Quantity</th>
             <th style="padding:30px">Action</th>
         </tr>
+
+        <form action="{{url('/orderconfirm')}}" method="post">      
+           @csrf
+
         @foreach($data as $data)
         <tr align="center">
-            <td>{{$data->title}}</td>
-            <td>{{$data->price}}</td>
-            <td>{{$data->quanitity}}</td>            
+            <td>
+                <input type="text" value="{{$data->title}}" name="foodname[]" hidden="">
+                {{$data->title}}
+            </td>
+            <td>
+                <input type="text" value="{{$data->price}}" name="price[]" hidden="">
+                {{$data->price}}
+            </td>
+            <td>
+            <input type="text" value="{{$data->quanitity}}" name="quantity[]" hidden="">
+                {{$data->quanitity}}
+            </td>            
         </tr>
         @endforeach
 
@@ -148,7 +161,7 @@ https://templatemo.com/tm-558-klassy-cafe
     </table>
 
     <div align="center" style="padding:10px">
-         <button class="btn btn-primary" id="order">Order Now</button>
+         <button class="btn btn-primary" type="button" id="order">Order Now</button>
     </div>
 
     <div align="center" style="padding:10px;display:none" id="appear">
@@ -169,11 +182,11 @@ https://templatemo.com/tm-558-klassy-cafe
 
         <div style="padding:10px">
             <input type="submit" value="Order Confirm" class="btn btn-warning">
-            <button id="close" class="btn btn-danger">Close</button>
+            <button id="close" type="button" class="btn btn-danger">Close</button>
         </div>
 
     </div>
-
+    </form>
     </div>
 
 
