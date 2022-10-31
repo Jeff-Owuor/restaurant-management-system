@@ -47,6 +47,8 @@ Route::post('/updatefoodchef/{id}',[AdminController::class,'updatefoodchef']);
 
 Route::post('/reservation',[AdminController::class,'reservation']);
 
+Route::post('/orderconfirm',[HomeController::class,'orderconfirm']);
+
 Route::get('/redirects',[HomeController::class,'redirects']);
 
 Route::get('/viewreservation',[AdminController::class,'viewreservation']);
