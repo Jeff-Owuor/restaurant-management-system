@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Chefs;
+use App\Models\Order;
 use App\Models\Reservation;
 
 class AdminController extends Controller
@@ -133,5 +134,11 @@ class AdminController extends Controller
        $data = chefs::find($id);
        $data->delete();
        return redirect()->back();
+   }
+
+   public function orders()
+   {
+       $data = order::all();
+       return view('admin.orders',compact("data"));
    }
 }
