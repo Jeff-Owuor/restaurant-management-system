@@ -53,6 +53,8 @@ Route::get('/redirects',[HomeController::class,'redirects']);
 
 Route::get('/orders',[AdminController::class,'orders']);
 
+Route::get('/search',[AdminController::class,'search']);
+
 Route::get('/viewreservation',[AdminController::class,'viewreservation']);
 
 Route::get('/viewchef',[AdminController::class,'viewchef']);
